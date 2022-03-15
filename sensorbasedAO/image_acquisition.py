@@ -29,10 +29,10 @@ def acq_image(sensor, height, width, acq_mode = 0):
             sensor.set_trigger_software(1)
 
             # Get data and pass them from camera to img
-            sensor.get_image(img, timeout = config['camera']['timeout'])
+            dataimage = sensor.get_image(timeout = config['camera']['timeout'])
 
             # Create numpy array with data from camera
-            dataimage = img.get_image_data_numpy()
+            # dataimage = img.get_image_data_numpy()
 
             # Bin numpy arrays by cropping central region of sensor to fit on viewer
             start_1 = (np.shape(dataimage)[0] - height) // 2
@@ -55,10 +55,10 @@ def acq_image(sensor, height, width, acq_mode = 0):
                 sensor.set_trigger_software(1)
 
                 # Get data and pass them from camera to img
-                sensor.get_image(img, timeout = config['camera']['timeout'])
+                dataimage = sensor.get_image(timeout = config['camera']['timeout'])
 
                 # Create numpy array with data from camera
-                dataimage = img.get_image_data_numpy()
+                # dataimage = img.get_image_data_numpy()
 
                 # Bin numpy arrays by cropping central region of sensor to fit on viewer
                 start_1 = (np.shape(dataimage)[0] - height) // 2
